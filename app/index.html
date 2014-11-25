@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Gestione Volontari - mobile1</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- <link rel="stylesheet" href="vendor/some.contrib.css"> -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/ionic/release/css/ionic.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+      
+    <style>
+        
+    .spinner {
+        display: none;
+    }
+
+    [ng-cloak].spinner {
+        display: block !important;
+    }    
+        
+    .spinner {
+        width: 30px;
+        height: 30px;
+        background-color: red !important;
+        margin: 100px auto;
+        -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+        animation: rotateplane 1.2s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes rotateplane {
+      0% { -webkit-transform: perspective(120px) }
+      50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+      100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+    }
+
+    @keyframes rotateplane {
+      0% { 
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+      } 50% { 
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+      } 100% { 
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+    }  
+    </style>  
+      
+  </head>
+
+  <body>
+    <div class="spinner" ng-cloak></div>
+      
+    <div class="demo-container"></div>  
+    
+    <!--  
+      
+    <ion-pane>
+      <div id="divStartBootstrap" ng-controller="AppCtrl">
+        <ion-nav-view></ion-nav-view>
+      </div> 
+    </ion-pane>
+
+    -->
+  
+    <!-- build:js scripts/vendor.js -->
+    <!-- <script src="vendor/someContribJs.js"></script> -->
+    <!-- bower:js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/collide/collide.js"></script>
+    <script src="lib/ionic/release/js/ionic.js"></script>
+    <script src="lib/ionic/release/js/ionic-angular.js"></script>
+    <script src="lib/lodash/dist/lodash.compat.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/restangular/dist/restangular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+
+        <!-- build:js scripts/scripts.js -->
+        <!-- <script src="scripts/config.js"></script> -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/services.js"></script>
+        <script src="scripts/rootControllers.js"></script>
+        <script src="scripts/loginControllers.js"></script>
+        <script src="scripts/serviziControllers.js"></script>
+        <script src="scripts/relazioniControllers.js"></script>
+        <script src="scripts/rapportiControllers.js"></script>
+        <script src="scripts/filters.js"></script>
+        <script src="scripts/directives.js"></script>
+        <script src="scripts/config.js"></script>
+        <!-- endbuild -->
+      
+        <script>
+            
+            console.log('.. preloading images .. ');
+            // preload images and start bootstrap!
+            
+            $.preloadImages = function() {
+                for (var i = 0; i < arguments.length; i++) {
+                    $("<img />").attr("src", arguments[i]);
+                }
+            };
+            $.preloadImages( "images/cocca2logo.jpg",
+                             "images/guida1ok.jpg",
+                             "images/guida2ok.jpg",
+                             "images/guida3ok.jpg");
+            /*
+            console.log('.. set bootstrap boot .. ');    
+            angular.element(document).ready(function() {
+                    setTimeout(function() {        
+                        angular.bootstrap(document, ['myApp']);
+                    }, 2000);
+            });
+            */
+
+            /*
+            // <div id="divStartBootstrap" ng-app="myApp" ng-controller="AppCtrl">
+            var body = document.getElementById('divStartBootstrap');
+            setTimeout(function() {
+                
+                
+                
+                body.setAttribute('ng-app', 'myApp');
+                body.setAttribute('ng-controllaer', 'AppCtrl');
+                angular.bootstrap(body, ['myApp']);
+            }, 2000); 
+            */
+            console.log('BOOT!!!!');
+            setTimeout(function() {
+                
+                
+                var bootIonic = '<ion-pane><div id="divStartBootstrap" ng-controller="AppCtrl"><ion-nav-view></ion-nav-view></div></ion-pane>';
+                console.log($("div.demo-container").html());
+                $("div.demo-container").html(bootIonic);
+                console.log($("div.demo-container").html());
+                
+                angular.bootstrap(document, ['myApp']);
+                
+                console.log('..go!');
+            }, 1000);
+        </script>  
+      
+      
+</body>
+</html>

@@ -1,0 +1,147 @@
+<h3>README - Applicazione Gestione Volontari </h3>
+
+<code>
+    
+    NOTE PER SVILUPPO e PRODUZIONE
+    
+    SVILUPPO
+    --------------------------------------------------------------------------
+    CARTELLE di Sviluppo
+        
+    
+    Sito
+    d:\tmp001\SENCHA\DesktopV\app\
+    
+    Server
+    d:\tmp001\SENCHA\MobileV\nodejs\
+    
+    Mysql
+    ##### ATTENZIONE I DATI SONO IN PRODUZIONE SOLO MODIFICHE SQL #####
+    Export con HeidiSQL nella seguente cartella ed import relativo in quella di produzione
+    d:\tmp001\SENCHA\MobileV\sql\ in c:\nodejs\sql
+    
+    Mobile / Versione
+    D:\tmp001\SENCHA\MobileV_IONIC\myApp2
+    grunt dist per la creazione della versione da deploy
+    
+    
+    
+    
+    Start
+    In d:\tmp001\SENCHA\MobileV\nodejs\
+    Start CMD come Amministratore C:\Windows\System32\cmd.exe /k "C:\Program Files\nodejs\nodevars.bat"
+    Spostarsi nella cartella: d:\tmp001\SENCHA\MobileV\nodejs\
+    Esegui nodejs server.js
+    Dal browser http://10.0.1.157:3000/dv/app/#/
+    
+    Su FEDERADATI PRODUZIONE
+    -------------------------------------------------------------------
+    in 
+    c:\DesktopV  sito
+    c:\nodejs 
+    c:\MobileV
+    Bactch che avvia il servizio
+    Dal browser http://federadati.provincia.rimini.it:3000/dv/app/
+    Servizio A2 che fa partire il servizio nodejs sulla porta 3000
+    
+    MESSA IN PRODUZIONE
+    ----------------------------------------------------------------
+    copiare la cartella locale 
+        d:\tmp001\SENCHA\DesktopV\
+    in
+        c:\DesktopV\
+    
+    copiare le cartelle
+        d:\tmp001\SENCHA\MobileV\nodejs\models\
+        d:\tmp001\SENCHA\MobileV\nodejs\node_modules\
+        d:\tmp001\SENCHA\MobileV\nodejs\test\
+        d:\tmp001\SENCHA\MobileV\nodejs\*.*
+    in
+        c:\nodejs
+    
+    spostare il database mysql con export/import
+    
+    Riavviare il servizio A2
+    
+    
+    Uso di grunt per la creazione di file *.js dentro jsmin da copiare in produzione
+    Sostituire i file nella cartella js della produzione
+    Backup sql del database nodejs
+    Copia della cartella nodejs e rinomina di server.min.js per server node
+</code>
+
+
+
+
+<p>Realizzata utilizzando i seguenti strumenti</p>
+
+<ul>
+<li>AngularJS</li>
+<li>Angular-ui</li>
+<li>NodeJs</li> 
+<li>Mysql</li>
+<li>Grunt</li>
+</ul>
+
+<h3>RIFERIMENTI</h3>
+
+<dl>
+  <dt>Restangular per accesso REST</dt>
+  <dd>https://github.com/mgonto/restangular</dd>
+  <dt>Restful CRUD with Angular</dt>
+  <dd>http://draptik.github.io/blog/2013/07/28/restful-crud-with-angularjs/</dd>
+
+<dt>Restful CRUD with Angular</dt>
+<dd>http://draptik.github.io/blog/2013/07/28/restful-crud-with-angularjs/</dd>
+
+<dt>Angular-ui</dt>
+<dd>http://angular-ui.github.io/</dd>
+
+<dt>Bootstrap Admin Template</dt>
+<dd>http://www.daveismyname.com/free-bootstrap-admin-themes-bp#.UzGe3vl5Nic</dd>
+
+<dt>ng-template e add custom data to controller</dt>
+<dd>http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/</dd>
+
+<dt>AngularJs Authentication and authorization - Security</dt>
+<dd>https://coderwall.com/p/f6brkg</dd>
+<dd>http://frederiknakstad.com/2013/01/21/authentication-in-single-page-applications-with-angular-js/</dd>
+<dd>http://beletsky.net/2013/11/simple-authentication-in-angular-dot-js-app.html</dd>
+<dd>http://blog.brunoscopelliti.com/deal-with-users-authentication-in-an-angularjs-web-app</dd>
+<dd>https://medium.com/opinionated-angularjs/7bbf0346acec</dd>
+<dd>http://coderead.wordpress.com/2012/08/16/securing-node-js-restful-services-with-jwt-tokens/</dd>
+
+<dt>AngularJS Timezone</dt>
+<dd>http://stackoverflow.com/questions/21133776/ignore-time-zone-angularjs</dd>
+
+<dt>AngularJS Modal service</dt>
+<dd>http://weblogs.asp.net/dwahlin/archive/2013/09/18/building-an-angularjs-modal-service.aspx</dd>
+
+<dt>AngularJS Form Validation</dt>
+<dd>http://scotch.io/tutorials/javascript/angularjs-form-validation</dd>
+
+<dt>Display PDF Blob</dt>
+<dd>http://stackoverflow.com/questions/21628378/angularjs-display-blob-pdf-in-an-angular-app
+
+<dt>AngularJS multiple uses of Controller and rootScope - Broadcast</dt>
+<dd>http://stackoverflow.com/questions/13180293/angularjs-multiple-uses-of-controller-and-rootscope
+
+<dt>Angular - TimeDatePicker</dt>
+<dd>http://amsul.ca/pickadate.js/</dd>
+
+<dt>Angular - minification</dt>
+<dd>http://stackoverflow.com/questions/18782324/angularjs-minify-best-practice</dd>
+<dd>https://raibledesigns.com/rd/entry/using_grunt_with_angularjs_for</dd>    
+    
+    
+</dl>
+
+
+
+
+
+
+
+
+
+

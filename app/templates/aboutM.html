@@ -1,0 +1,57 @@
+<ion-view class="item-dark" title="Informazioni" left-buttons="leftButtons" right-buttons="rightButtons">
+        
+    <ion-nav-bar class="bar-royal">
+         <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+        
+    <ion-content has-header="true" padding="true" class="bgMain">
+        
+        <div class="list card">
+            
+              <div class="item">
+                <img src="images/cocca2logo.jpg">
+              </div>
+          
+              <div class="item">
+                <h1>Provincia di Rimini</h1>
+                <h2>Gestione Servizi Volontari</h2>
+              </div>
+
+
+              <a class="item item-icon-left assertive" href="#">
+                <i class="icon ion-code-download"></i>
+                Ruggero Ruggeri
+              </a>        
+            
+            
+            
+             <div class="item">
+                <p>Schermo intero per migliorare la visibilità (per Chrome/Firefox/Safari)</p>
+                 <div class="button-bar">
+                    <button id="btn-testconnection" class="button  button-positive" ng-click="fullscreenOn()">Abilita</button>
+                    <button id="btn-testconnection" class="button  button-positive" ng-click="fullscreenOff()">Disabilita</button>
+                 </div>
+             </div>
+            
+ 
+             <div class="item">
+                <button id="btn-testconnection" class="button button-block button-positive" ng-click="test_connection()">Test connection</button>
+             </div>
+            
+             <div class="item">
+                Utente: {{navTitle}} <br>
+                $location.protocol() = <span ng-bind={{$location.protocol()}}></span> <br>
+                $location.host() = <span ng-bind="$location.host()"></span> <br>
+                $location.port() = <span ng-bind="$location.port()"></span> <br>
+                $location.path() = <span ng-bind="$location.path()"></span> <br>
+                $location.search() = <span ng-bind="$location.search()"></span> <br>
+                $location.hash() = <span ng-bind="$location.hash()"></span> <br>
+                base_url = <span>{{base_url}}</span> <br>
+             </div>  
+            
+
+        </div>
+    </ion-content>
+</ion-view>

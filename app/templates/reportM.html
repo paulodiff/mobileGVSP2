@@ -1,0 +1,54 @@
+<ion-view class="item-calm" title="Selezione Riepilogo" left-buttons="leftButtons" right-buttons="rightButtons">
+    
+    <ion-nav-bar class="bar-royal">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+    </ion-nav-buttons>
+    </ion-nav-bar>    
+
+    <ion-content>
+        <div class="padding">
+            <p>Filtri di ricerca:</p>
+            <div class="controls">
+                 <label class="item item-input item-select">
+                 <div class="input-label">Tipo:</div>
+                    <select ng-model="item.tipo_report" class="form-control" >
+                     <option value="1" selected>Calendario preventivo - 1</option>
+                     <option value="2">Relazione di servizio - 2 </option>
+                     <option value="4">Relazione di servizio - 4 - singola </option>
+                     <option value="3">Repilogo ore di servizio - 3</option>
+                     <option value="5">Stampa elenco volontari - 5</option>
+                    </select>
+                </label>   
+                
+                <label class="item item-input item-select">
+                    <div class="input-label">Associazione:</div>
+                      <select ng-model="item.id_utenti" class="form-control" ng-options="i.id_utenti as i.nome_breve_utenti for i in utentiList"></select>       
+                </label>   
+        
+        
+        
+            <label class="item item-input">
+                <div class="input-label">Data servizio</div>
+                <input type="date" 
+                        ng-model="item.data_servizi">
+            </label>
+        
+     
+            <div class="item item-input-inset">
+                <button class="button button-positive button-full" ng-click="build_report()">Crea la stampa</button>
+            </div>
+       
+              <div ng-show="showDownloadButton" >
+                 <a class="button button-full button-energized" href="{{showDownloadUrl}}">{{showDownloadButtonText}}</a>
+              </div>               
+              <div ng-show="showDownloadButton" >
+                 <a class="button button-full button-energized" ng-click="view_pdf()">Visualizza PDF (nuova finestra)</a>
+              </div>  
+                
+                <p>{{showGoogleViewUrl}}</p>
+                
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

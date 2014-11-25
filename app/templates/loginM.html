@@ -1,0 +1,77 @@
+<ion-view title="{{navTitle}}" left-buttons="leftButtons" class="bgMain">
+    
+    <ion-nav-bar class="bar-assertive">
+        <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+    <ion-content>
+        
+    <div ng-if="!currentUser">
+
+      <form id="loginform" class="form-horizontal" role="form" ng-submit="login(credentials)" novalidate>
+               
+      <!-- <p>&nbsp;</p> -->
+
+      <div class="list">
+       <label class="item item-text-wrap item-thumbnail-left">
+        <img src="images/cocca2logo.jpg">
+        <h2>Applicazione per la gestione dei servizi dei volontari della Polizia Provinciale. Versione Mobile.</h2>
+       </label>
+        <label class="item item-input item-stacked-label">
+           <span class="input-label">Utente:</span>
+           <input type="text" ng-model="credentials.username" placeholder="username">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Password:</span>
+          <input type="password" ng-model="credentials.password" placeholder="password">
+        </label>
+
+          
+        <label class="item">
+          <button class="button button-balanced button-block" type="submit">Logon</button>
+        </label>
+          
+      </div>
+
+    
+          
+      </form>  
+
+
+            
+      </div> <!-- ng-if currentUser-->
+        
+      <div ng-if="currentUser">
+          <form id="loginform" class="form-horizontal" role="form" ng-submit="logout(credentials)" novalidate>
+            <div class="list">
+            <label class="item item-text-wrap">
+                <p>Utente autenticato : {{currentUser}}</p>
+            </label>
+            </div>
+            <div class="padding">
+                <button type="submit" id="btn-login" class="button button-block button-positive">Disconnetti</button>
+            </div>
+          </form>  
+      </div> <!-- ng-if currentUser-->
+        
+
+          
+    <!--    
+    <div class="item"> 
+        <p><b>Visualizzazione intero (per Chrome/Firefox/Safari)</b></p>
+        <div class="button-bar">
+            <button id="btn-fullOn" class="button icon-left ion-ios7-monitor button-positive" ng-click="fullscreenOn()">Abilita</button>
+            <button id="btn-fullOff" class="button icon-right ion-ios7-monitor-outline button-positive" ng-click="fullscreenOff()">Disabilita</button>
+        </div>
+     </div>
+    -->        
+       
+    
+    
+    
+    </ion-content>
+    
+    
+</ion-view>

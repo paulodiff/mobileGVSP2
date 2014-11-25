@@ -1,0 +1,130 @@
+<ion-view class="" title="Relazione di servizio" left-buttons="leftButtons" right-buttons="rightButtons">
+
+    <!-- This settings page is not fully implemented with volume and toggles but max results is used in the query. It was meant to be
+    more of an example of some Ionic components for now -->
+
+     <ion-nav-bar class="bar-royal">
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" ng-click="toggleLeft()"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right" >
+          <button class="button button-icon button-clear ion-search" ng-click="toggleRight()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+        
+    <ion-content has-header="true" padding="true">
+        <div class="list">
+            
+            <div class="item  item-balanced">
+                <div ng-show="configAction == 'edit'"  class="panel-heading"><h2><b>Relazione di Servizio : {{item.id}} *</b></h2></div>
+                <div ng-show="configAction == 'new'"  class="panel-heading"><h2><b>Creazione nuova Relazione di Servizio</b></h2></div>
+                <div ng-show="configAction == 'view'"  class="panel-heading"><h2><b>Relazione di Servizio : {{item.id}} **</b></h2></div>
+            </div>
+            
+            <div ng-show="(configAction == 'edit') ||  (configAction == 'new')">
+              <fancy-select
+                    allow-empty='false'
+                    label-text="Associazione"
+                    value="item.id_utenti"
+                    text="item.nome_breve_utenti"
+                    header-text="Seleziona utenti"
+                    items="utentiList">
+            </fancy-select>
+            <fancy-select
+                              header-text="Selezione Volontario"
+                              label-text="Volontari"
+                              allow-empty='false'
+                              text="item.elenco_volontari"
+                              value="item.elenco_id_volontari"
+                              items="volontariList"
+                              multi-select="true"            
+                              >
+            </fancy-select>
+
+            <label class="item item-input">
+                <div class="input-label">Data Relazione</div>
+                <input type="date" 
+                        ng-model="item.data_relazioni">
+            </label>
+
+            <label class="item item-input">
+               <div class="input-label">Dalle ore</div>
+              <input type="time"  
+                        ng-model="item.da_ora_relazioni" />
+            </label>
+
+            <label class="item item-input">
+               <div class="input-label">Alle ore</div>
+                <input type="time"  
+                       ng-model="item.a_ora_relazioni"   />
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Rapporto</span>
+                <input type="text" ng-model="item.rapporto_relazioni">
+            </label>
+
+            
+            <label class="item item-input">
+                <span class="input-label">Auto</span>
+                <input type="text" ng-model="item.auto_relazioni">
+            </label>
+
+          <label class="item item-input">
+                <span class="input-label">Note</span>
+                <input type="text" ng-model="item.note_relazioni">
+            </label>
+            </div> <!-- ng-view -->
+   
+                
+            <div ng-show="(configAction == 'view')">
+             <label class="item item-input">
+                <div class="input-label"><b>Associazione:</b></div>
+                <div class="input-label">{{item.nome_breve_utenti}}</div>
+            </label>
+                
+            <label class="item item-text-wrap">
+                <b>Volontari:</b><br/>{{item.elenco_volontari}}
+            </label>                
+
+                
+            <label class="item item-input">
+                <div class="input-label"><b>Data:</b></div>
+                <div class="input-label">{{item.data_relazioni}}</div>
+            </label>
+
+            <label class="item item-input">
+               <div class="input-label"><b>Dalle ore:</b></div>
+               <div class="input-label">{{item.da_ora_relazioni}}</div>
+            </label>    
+                
+            <label class="item item-input">
+               <div class="input-label"><b>Alle ore:</b></div>
+               <div class="input-label">{{item.a_ora_relazioni}}</div>
+            </label>
+                
+            <label class="item item-text-wrap">
+                <b>Rapporto:</b><br/>{{item.rapporto_relazioni}}
+            </label>
+            <label class="item item-text-wrap">
+                <b>Auto:</b> {{item.auto_relazioni}}
+            </label>
+            <label class="item item-text-wrap">
+                <b>Note:</b><br/>{{item.note_relazioni}}
+            </label>
+            </div>
+    
+            
+            <button class="button button-full button-positive" ng-show="configAction == 'new'" id="salvabutton"  ng-click="save_action(item)"   name="singlebutton" class="btn btn-primary">Salva Elemento</button>
+            <button class="button button-full button-assertive" ng-show="(configAction == 'view') && (id_rapporto_valido_servizio == null) && (item.annullato_relazioni == 0)" id="cancelbutton" ng-click="cancel_action(item)" name="button2id"    class="btn btn-danger">Annulla Elemento</button>
+            <button class="button button-full button-positive" ng-show="(item.annullato_relazioni == 1)" id="cancelbutton" name="button2id"    class="btn btn-danger">Elemento ANNULLATO - nessuna operazione possibile</button>
+      
+            
+            <button ng-show="false" class="button button-full button-positive" id="debugBbutton" name="debugButton" ng-click="debug_action(item)"  class="btn btn-danger">DEBUG</button>
+      
+            
+            
+
+        </div>
+    </ion-content>
+</ion-view>
